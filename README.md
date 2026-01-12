@@ -37,7 +37,7 @@
 ## Usage
 
 1. Download the flavor of your choice.
-2. In your Python file, put `path/to/catppuccin-{flavor}-{accent}.json`
+2. In your Python file, put `customtkinter.set_default_color_theme("path/to/catppuccin-{flavor}-{accent}.json")` (replace  `path/to` with the actual path and replace `{flavour}` with the flavour you chose and `{accent}` with the accent you chose).
 
 ## 💝 Thanks to
 
