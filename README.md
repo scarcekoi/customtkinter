@@ -36,8 +36,12 @@
 
 ## Usage
 
-1. Download the flavor of your choice.
-2. In your Python file, put `customtkinter.set_default_color_theme("path/to/catppuccin-{flavor}-{accent}.json")` (replace  `path/to` with the actual path and replace `{flavour}` with the flavour you chose and `{accent}` with the accent you chose).
+> [!NOTE]
+> This port has both a dynamic and static version. The dynamic version has different flavors for the light mode while the static version uses the flavor for both the light and dark theme.
+> The theme files also modify non-color elements, such as corner radius, border width, and fonts. They are based on the built-in [blue theme](https://github.com/TomSchimansky/CustomTkinter/blob/master/customtkinter/assets/themes/blue.json). You can freely adjust the non-color elements as wanted.
+
+1. Download the flavor of your choice from [themes](themes).
+2. In your Python file, put `customtkinter.set_default_color_theme("path/to/catppuccin-{flavor}-{accent}.json")` (replace `path/to` with the actual path and replace `{flavour}` with the flavour you chose and `{accent}` with the accent you chose).
 
 ## 💝 Thanks to
 
