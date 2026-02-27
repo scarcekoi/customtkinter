@@ -30,7 +30,7 @@ whiskers:
     "hover_color": ["{{darkAccent.hex}}", "{{darkAccent.hex}}"],
     "border_color": ["{{overlay0.hex}}", "{{overlay0.hex}}"],
     "text_color": ["{{base.hex}}", "{{base.hex}}"],
-    "text_color_disabled": ["{{overlay0.hex}}", "{{overlay0.hex}}"]
+    "text_color_disabled": ["{{surface1.hex}}", "{{surface1.hex}}"]
   },
   "CTkLabel": {
     "corner_radius": 0,
