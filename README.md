@@ -47,7 +47,7 @@
 ## 🙋 FAQ
 
 - Q: **_"How do I change themes with dynamic mode?"_**\
-  A: To use the light theme put this in your code: `ctk.set_appearance_mode("light")`. The options are **light**, **dark**, and **System**.
+  A: `customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"`.
 
 ## 💝 Thanks to
 
