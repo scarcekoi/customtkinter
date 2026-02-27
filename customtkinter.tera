@@ -3,9 +3,10 @@ whiskers:
   version: "^2.5.1"
   matrix:
     - flavor
+    - light_flavor: ["latte", "frappe", "macchiato", "mocha"]
     - accent
     - mode: [dynamic, static]
-  filename: "themes/{% if mode == 'static' %}static{% elif mode == 'dynamic' %}dynamic{% endif %}/{{flavor.identifier}}/catppuccin-{{flavor.identifier}}-{{accent}}.json"
+  filename: "themes/{% if mode == 'static' %}static{% elif mode == 'dynamic' %}dynamic{% endif %}/{{flavor.identifier}}{% if mode == 'dynamic' %}/{{light_flavor}}{% endif %}/catppuccin-{{flavor.identifier}}{% if mode == 'dynamic' %}-{{light_flavor}}{% endif %}-{{accent}}.json"
   hex_format: "#{{R}}{{G}}{{B}}"
 ---
 {% set darkAccent = flavor.colors[accent] | sub(lightness=5) %}{% set darkerAccent = flavor.colors[accent] | sub(lightness=10) %}{% if mode == 'static' %}{
@@ -163,4 +164,159 @@ whiskers:
     }
   }
 }
-{% elif mode == 'dynamic' %}{}{% endif %}
+{% elif mode == 'dynamic' %}{% set dark = flavor %}{% set light = flavors[light_flavor] %}{% set lightAccent = light.colors[accent] %}{% set lightDarkAccent = lightAccent | sub(lightness=5) %}{% set lightDarkerAccent = lightAccent | sub(lightness=10) %}{
+  "CTk": {
+    "fg_color": ["{{light.colors.base.hex}}", "{{base.hex}}"]
+  },
+  "CTkToplevel": {
+    "fg_color": ["{{light.colors.base.hex}}", "{{base.hex}}"]
+  },
+  "CTkFrame": {
+    "corner_radius": 6,
+    "border_width": 0,
+    "fg_color": ["{{light.colors.base.hex}}", "{{base.hex}}"],
+    "top_fg_color": ["{{light.colors.mantle.hex}}", "{{mantle.hex}}"],
+    "border_color": ["{{light.colors.overlay0.hex}}", "{{overlay0.hex}}"]
+  },
+  "CTkButton": {
+    "corner_radius": 6,
+    "border_width": 0,
+    "fg_color": ["{{light.colors[accent].hex}}", "{{flavor.colors[accent].hex}}"],
+    "hover_color": ["{{lightDarkAccent.hex}}", "{{darkAccent.hex}}"],
+    "border_color": ["{{light.colors.overlay0.hex}}", "{{overlay0.hex}}"],
+    "text_color": ["{{light.colors.base.hex}}", "{{base.hex}}"],
+    "text_color_disabled": ["{{light.colors.overlay0.hex}}", "{{overlay0.hex}}"]
+  },
+  "CTkLabel": {
+    "corner_radius": 0,
+    "fg_color": "transparent",
+    "text_color": ["{{light.colors.text.hex}}", "{{text.hex}}"]
+  },
+  "CTkEntry": {
+    "corner_radius": 6,
+    "border_width": 2,
+    "fg_color": ["{{light.colors.mantle.hex}}", "{{mantle.hex}}"],
+    "border_color": ["{{light.colors.overlay0.hex}}", "{{overlay0.hex}}"],
+    "text_color":["{{light.colors.text.hex}}", "{{text.hex}}"],
+    "placeholder_text_color": ["{{light.colors.overlay1.hex}}", "{{overlay1.hex}}"]
+  },
+  "CTkCheckBox": {
+    "corner_radius": 6,
+    "border_width": 3,
+    "fg_color": ["{{light.colors[accent].hex}}", "{{flavor.colors[accent].hex}}"],
+    "border_color": ["{{light.colors.overlay0.hex}}", "{{overlay0.hex}}"],
+    "hover_color": ["{{light.colors[accent].hex}}", "{{flavor.colors[accent].hex}}"],
+    "checkmark_color": ["{{light.colors.base.hex}}", "{{base.hex}}"],
+    "text_color": ["{{light.colors.text.hex}}", "{{text.hex}}"],
+    "text_color_disabled": ["{{light.colors.overlay0.hex}}", "{{overlay0.hex}}"]
+  },
+  "CTkSwitch": {
+    "corner_radius": 1000,
+    "border_width": 3,
+    "button_length": 0,
+    "fg_color": ["{{light.colors.mantle.hex}}", "{{mantle.hex}}"],
+    "progress_color": ["{{light.colors[accent].hex}}", "{{flavor.colors[accent].hex}}"],
+    "button_color": ["{{light.colors.subtext0.hex}}", "{{subtext0.hex}}"],
+    "button_hover_color": ["{{light.colors.subtext1.hex}}", "{{subtext1.hex}}"],
+    "text_color": ["{{light.colors.text.hex}}", "{{text.hex}}"],
+    "text_color_disabled": ["{{light.colors.overlay0.hex}}", "{{overlay0.hex}}"]
+  },
+  "CTkRadioButton": {
+    "corner_radius": 1000,
+    "border_width_checked": 6,
+    "border_width_unchecked": 3,
+    "fg_color": ["{{light.colors[accent].hex}}", "{{flavor.colors[accent].hex}}"],
+    "border_color": ["{{light.colors.overlay0.hex}}", "{{overlay0.hex}}"],
+    "hover_color": ["{{lightDarkAccent.hex}}", "{{darkAccent.hex}}"],
+    "text_color": ["{{light.colors.text.hex}}", "{{text.hex}}"],
+    "text_color_disabled": ["{{light.colors.overlay0.hex}}", "{{overlay0.hex}}"]
+  },
+  "CTkProgressBar": {
+    "corner_radius": 1000,
+    "border_width": 0,
+    "fg_color": ["{{light.colors.mantle.hex}}", "{{mantle.hex}}"],
+    "progress_color": ["{{light.colors[accent].hex}}", "{{flavor.colors[accent].hex}}"],
+    "border_color": ["{{light.colors.crust.hex}}", "{{crust.hex}}"]
+  },
+  "CTkSlider": {
+    "corner_radius": 1000,
+    "button_corner_radius": 1000,
+    "border_width": 6,
+    "button_length": 0,
+    "fg_color": ["{{light.colors.mantle.hex}}", "{{mantle.hex}}"],
+    "progress_color": ["{{light.colors.subtext0.hex}}", "{{subtext0.hex}}"],
+    "button_color": ["{{light.colors[accent].hex}}", "{{flavor.colors[accent].hex}}"],
+    "button_hover_color": ["{{lightDarkAccent.hex}}", "{{darkAccent.hex}}"]
+  },
+  "CTkOptionMenu": {
+    "corner_radius": 6,
+    "fg_color": ["{{light.colors[accent].hex}}", "{{flavor.colors[accent].hex}}"],
+    "button_color": ["{{lightDarkAccent.hex}}", "{{darkAccent.hex}}"],
+    "button_hover_color": ["{{lightDarkerAccent.hex}}", "{{darkerAccent.hex}}"],
+    "text_color": ["{{light.colors.base.hex}}", "{{base.hex}}"],
+    "text_color_disabled": ["{{light.colors.overlay0.hex}}", "{{overlay0.hex}}"]
+  },
+  "CTkComboBox": {
+    "corner_radius": 6,
+    "border_width": 2,
+    "fg_color": ["{{light.colors.mantle.hex}}", "{{mantle.hex}}"],
+    "border_color": ["{{light.colors.surface0.hex}}", "{{surface0.hex}}"],
+    "button_color": ["{{light.colors.surface0.hex}}", "{{surface0.hex}}"],
+    "button_hover_color": ["{{light.colors.surface1.hex}}", "{{surface1.hex}}"],
+    "text_color": ["{{light.colors.text.hex}}", "{{text.hex}}"],
+    "text_color_disabled": ["{{light.colors.overlay0.hex}}", "{{overlay0.hex}}"]
+  },
+  "CTkScrollbar": {
+    "corner_radius": 1000,
+    "border_spacing": 4,
+    "fg_color": "transparent",
+    "button_color": ["{{light.colors.surface2.hex}}", "{{surface2.hex}}"],
+    "button_hover_color": ["{{light.colors.overlay0.hex}}", "{{overlay0.hex}}"]
+  },
+  "CTkSegmentedButton": {
+    "corner_radius": 6,
+    "border_width": 2,
+    "fg_color": ["{{light.colors.mantle.hex}}", "{{mantle.hex}}"],
+    "selected_color": ["{{light.colors.base.hex}}", "{{base.hex}}"],
+    "selected_hover_color": ["{{light.colors.base.hex}}", "{{base.hex}}"],
+    "unselected_color": ["{{light.colors.mantle.hex}}", "{{mantle.hex}}"],
+    "unselected_hover_color": ["{{light.colors.surface0.hex}}", "{{surface0.hex}}"],
+    "text_color": ["{{light.colors.text.hex}}", "{{text.hex}}"],
+    "text_color_disabled": ["{{light.colors.overlay0.hex}}", "{{overlay0.hex}}"]
+  },
+  "CTkTextbox": {
+    "corner_radius": 6,
+    "border_width": 0,
+    "fg_color": ["{{light.colors.mantle.hex}}", "{{mantle.hex}}"],
+    "border_color": ["{{light.colors.overlay0.hex}}", "{{overlay0.hex}}"],
+    "text_color":["{{light.colors.text.hex}}", "{{text.hex}}"],
+    "scrollbar_button_color": ["{{light.colors.surface2.hex}}", "{{surface2.hex}}"],
+    "scrollbar_button_hover_color": ["{{light.colors.overlay0.hex}}", "{{overlay0.hex}}"]
+  },
+  "CTkScrollableFrame": {
+    "label_fg_color": ["{{light.colors.surface0.hex}}", "{{surface0.hex}}"]
+  },
+  "DropdownMenu": {
+    "fg_color": ["{{light.colors.mantle.hex}}", "{{mantle.hex}}"],
+    "hover_color": ["{{light.colors.surface0.hex}}", "{{surface0.hex}}"],
+    "text_color": ["{{light.colors.text.hex}}", "{{text.hex}}"]
+  },
+  "CTkFont": {
+    "macOS": {
+      "family": "SF Display",
+      "size": 13,
+      "weight": "normal"
+    },
+    "Windows": {
+      "family": "Roboto",
+      "size": 13,
+      "weight": "normal"
+    },
+    "Linux": {
+      "family": "Roboto",
+      "size": 13,
+      "weight": "normal"
+    }
+  }
+}
+{% endif %}
