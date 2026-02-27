@@ -12,36 +12,36 @@
 </p>
 
 <p align="center">
-	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/previews/preview.webp"/>
+	<img src="assets/preview.webp"/>
 </p>
 
 ## Previews
 
 <details>
 <summary>🌻 Latte</summary>
-<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/previews/latte.webp"/>
+<img src="assets/latte.webp"/>
 </details>
 <details>
 <summary>🪴 Frappé</summary>
-<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/previews/frappe.webp"/>
+<img src="assets/frappe.webp"/>
 </details>
 <details>
 <summary>🌺 Macchiato</summary>
-<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/previews/macchiato.webp"/>
+<img src="assets/macchiato.webp"/>
 </details>
 <details>
 <summary>🌿 Mocha</summary>
-<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/previews/mocha.webp"/>
+<img src="assets/mocha.webp"/>
 </details>
 
 ## Usage
 
 > [!NOTE]
-> This port has both a dynamic and static version. The dynamic version has different flavors for the light mode while the static version uses the flavor for both the light and dark theme.
+> This port has both a dynamic and static version. The dynamic version has different flavors for the light mode while the static version uses the flavor for both the light and dark theme. The dynamic theme does have
 > The theme files also modify non-color elements, such as corner radius, border width, and fonts. They are based on the built-in [blue theme](https://github.com/TomSchimansky/CustomTkinter/blob/master/customtkinter/assets/themes/blue.json). You can freely adjust the non-color elements as wanted.
 
-1. Download the flavor of your choice from [themes](themes).
-2. In your Python file, put `customtkinter.set_default_color_theme("path/to/catppuccin-{flavor}-{accent}.json")` (replace `path/to` with the actual path and replace `{flavour}` with the flavour you chose and `{accent}` with the accent you chose).
+1. Download the flavor of your choice from [themes](themes). The dynamic theme uses a path like so: `themes/dynamic/<dark flavor>/<light flavor>/catppuccin-<dark flavor>-<light flavor>-<accent>`.
+2. In your Python file, put `customtkinter.set_default_color_theme("path/to/catppuccin-{dark flavor}-{light flavor}-{accent}.json")` (replace `path/to` with the actual path and replace `{dark flavor}` with the dark flavor you chose, `{light flavor}` with the light flavor you chose, and `{accent}` with the accent you chose).
 
 ## 💝 Thanks to
 
