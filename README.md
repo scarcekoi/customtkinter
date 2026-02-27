@@ -42,6 +42,12 @@
 
 1. Download the flavor of your choice from [themes](themes). The dynamic theme uses a path like so: `themes/dynamic/<dark flavor>/<light flavor>/catppuccin-<dark flavor>-<light flavor>-<accent>`.
 2. In your Python file, put `customtkinter.set_default_color_theme("path/to/catppuccin-{dark flavor}-{light flavor}-{accent}.json")` (replace `path/to` with the actual path and replace `{dark flavor}` with the dark flavor you chose, `{light flavor}` with the light flavor you chose, and `{accent}` with the accent you chose).
+3. Enjoy!
+
+## 🙋 FAQ
+
+- Q: **_"How do I change themes with dynamic mode?"_**\
+  A: To use the light theme put this in your code: `ctk.set_appearance_mode("light")`. The options are **light**, **dark**, and **System**.
 
 ## 💝 Thanks to
 
