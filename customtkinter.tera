@@ -7,10 +7,10 @@ whiskers:
   filename: "themes/{{ flavor.identifier }}/catppuccin-{{ flavor.identifier }}-{{ accent }}.json"
   hex_format: "#{{R}}{{G}}{{B}}{{Z}}"
 ---
-{%- set darkAccent = flavor.colors[accent] | sub(lightness=5) -%}
-{%- set darkerAccent = flavor.colors[accent] | sub(lightness=10) -%}
 {%- set dark = flavor -%}
 {%- set light = flavors.latte -%}
+{%- set darkAccent = flavor.colors[accent] | sub(lightness=5) -%}
+{%- set darkerAccent = flavor.colors[accent] | sub(lightness=10) -%}
 {%- set lightAccent = light.colors[accent] -%}
 {%- set lightDarkAccent = lightAccent | sub(lightness=5) -%}
 {%- set lightDarkerAccent = lightAccent | sub(lightness=10) -%}
