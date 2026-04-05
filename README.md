@@ -42,7 +42,7 @@
 
 ## 🙋 FAQ
 
-- Q: **_"How do I change themes with dynamic mode?"_**\
+- Q: **_"How do I change themes?"_**\
   A: `customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"`.
 
 ## 💝 Thanks to
