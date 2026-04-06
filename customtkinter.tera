@@ -6,6 +6,12 @@ whiskers:
     - accent
   filename: "themes/{{ flavor.identifier }}/catppuccin-{{ flavor.identifier }}-{{ accent }}.json"
   hex_format: "#{{R}}{{G}}{{B}}{{Z}}"
+font:
+  size: 13
+  weight: "normal"
+  macos: "SF Display"
+  windows: "Roboto"
+  linux: "Roboto"
 ---
 {%- set dark = flavor -%}
 {%- set light = flavors.latte -%}
@@ -153,19 +159,19 @@ whiskers:
   },
   "CTkFont": {
     "macOS": {
-      "family": "SF Display",
-      "size": 13,
-      "weight": "normal"
+      "family": "{{ font.macos }}",
+      "size": {{ font.size }},
+      "weight": "{{ font.weight }}"
     },
     "Windows": {
-      "family": "Roboto",
-      "size": 13,
-      "weight": "normal"
+      "family": "{{ font.windows }}",
+      "size": {{ font.size }},
+      "weight": "{{ font.weight }}"
     },
     "Linux": {
-      "family": "Roboto",
-      "size": 13,
-      "weight": "normal"
+      "family": "{{ font.linux }}",
+      "size": {{ font.size }},
+      "weight": "{{ font.weight }}"
     }
   }
 }
