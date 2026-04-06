@@ -42,7 +42,9 @@
 
 ### Overrides
 
-To override the font from generation time, when generating the files add an override like so: `whiskers customtkinter.tera --overrides '{"font": {"size": 14}}'`. The available overrides (where `size` is) are:
+To override the font from generation time, add an override to the command like so: `whiskers customtkinter.tera --overrides '{"font": {"size": 14}}'`.
+
+Available overrides:
 - font
   - size (default: **13**)
   - weight (default: **normal**)
